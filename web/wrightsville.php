@@ -1,85 +1,70 @@
 <?php
-  //Brandon Harris
+    //Brandon Harris
 	require 'includes/header.php'; ?>
+  <head>
+  <script type="text/javascript" src="https://code.jquery.com/jquery-1.10.1.js"></script>
+  <script type="text/javascript" src="https://code.highcharts.com/highcharts.js"></script>
+  <script>
+  $(document).ready(function() {
+    var options = {
+        chart: {
+          renderTo: 'airtemp',
+          defaultSeriesType: 'spline',
+        },
+    title: {
+        text: 'Daily Air Temperature',
+    },
+    xAxis: {
+	categories: []
+    },
+    yAxis: {
+        title: {
+          text: 'Temperature'
+        },
+    },
+    credits: {
+        enabled: false
+    },
+        series: [{showInLegend: false,}]
+      };
+      
+      $.getJSON('air_temp_chart.php', function(json) {
+	options.xAxis.categories = json[0]['data'];
+    	options.series[0].data = json[1].data;
+    	chart = new Highcharts.Chart(options);
+      });
 
-	<head>
-		<script src="https://code.highcharts.com/highcharts.js"></script>
-		<script src="https://code.highcharts.com/modules/exporting.js"></script>
-	</head>
-
-	<div class="container">
-	  <div class="row">
-			<div class = "container">
-		    <div class="col-md-6">
-					<div id="airtemp">
-						<script>
-							$(function () {
-							$.getJSON('../scripts/tidey_charts.php', function (data) {
-
-									Highcharts.chart('airtemp', {
-											chart: {
-													zoomType: 'x'
-											},
-											title: {
-													text: 'Air Temperature'
-											},
-											xAxis: {
-													type: 'Time'
-											},
-											yAxis: {
-													title: {
-															text: 'Temperature'
-													}
-											},
-											legend: {
-													enabled: false
-											},
-											plotOptions: {
-													area: {
-															fillColor: {
-																	linearGradient: {
-																			x1: 0,
-																			y1: 0,
-																			x2: 0,
-																			y2: 1
-																	},
-																	stops: [
-																			[0, Highcharts.getOptions().colors[0]],
-																			[1, Highcharts.Color(Highcharts.getOptions().colors[0]).setOpacity(0).get('rgba')]
-																	]
-															},
-															marker: {
-																	radius: 2
-															},
-															lineWidth: 1,
-															states: {
-																	hover: {
-																			lineWidth: 1
-																	}
-															},
-															threshold: null
-													}
-											},
-
-											series: [{
-													type: 'area',
-													name: 'Air Temperature',
-													data: data
-											}]
-									});
-							});
-						});
-						</script>
-					</div>
-				</div>
-				<div class="col-md-6">
-					<div id="watertemp"
-						<em>Insert graph here</em>
-					</div>
-				</div>
-			</div>
-	  </div>
-	</div>
-
+    var options2 = {
+        chart: {
+          renderTo: 'watertemp',
+          defaultSeriesType: 'spline',
+        },
+    title: {
+        text: 'Daily Water Temperature',
+    },
+    xAxis: {
+	categories: []
+    },
+    yAxis: {
+        title: {
+          text: 'Temperature'
+        },
+    },
+    credits: {
+        enabled: false
+    },
+        series: [{showInLegend: false,}]
+      };
+      
+      $.getJSON('water_temp_chart.php', function(json) {
+	options2.xAxis.categories = json[0]['data'];
+    	options2.series[0].data = json[1].data;
+    	chart2 = new Highcharts.Chart(options2);
+      });
+    });
+    </script>
+    </head>
+    <div id='airtemp'></div>
+    <div id='watertemp'></div>
 
 <?php include './includes/footer.php'; ?>
