@@ -1,6 +1,6 @@
 <?php 
 
-$servername = "localhost";
+$servername = "127.0.0.1";
 $username = "brk3269";
 $password = "carkorabi77888";
 
@@ -13,15 +13,25 @@ if (mysqli_connect_errno()) {
 
 $query = "select ttime, water_temperature from water_temp;";
 $data = array();
-
+$data['water_temp'] = 'Time';
 if ($result = mysqli_query($conn, $query)) {
-
     while($row = mysqli_fetch_assoc($result)){
-	$data[] = "[".$row["ttime"].",".$row["water_temperature"]."]";
+	$data['data'][] = $row["ttime"];
     }
-    echo json_encode($data);
-    mysqli_free_result($result);
 }
+
+$data2= array();
+$data2['water_temp'] = 'WaterTemp';
+if ($result = mysqli_query($conn, $query)) {
+    while($row = mysqli_fetch_assoc($result)){
+	$data2['data'][] = $row["water_temperature"];
+    }
+}
+
+$result = array();
+array_push($result, $data);
+array_push($result, $data2);
+print json_encode($result, JSON_NUMERIC_CHECK);
 
 mysqli_close($conn);
 ?>
