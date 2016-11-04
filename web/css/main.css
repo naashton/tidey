@@ -1,0 +1,12 @@
+/*Brandon Harris x*/
+.jumbotron {
+  color: white;
+  background-image: url("../images/jumbopic.png");
+  background-size: cover;
+  filter: grayscale(100%);
+}
+
+.footerlogo {
+  height: 25px;
+  width: 5%;
+}
