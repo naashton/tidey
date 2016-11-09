@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE HTML>
 <head>
     <!-- Brandon Harris -->
@@ -25,6 +26,7 @@
         </div>
         <ul class="nav navbar-nav">
           <li><a href="home.php">Home</a></li>
+          <li><a href="#">Contact Us</a></li>
           <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Beaches<span class="caret"></span></a>
               <ul class="dropdown-menu">
@@ -33,8 +35,14 @@
                 <li><a href="wrightsville.php">Wrightsville Beach</a></li>
               </ul>
             </li>
-          <li><a href="register_user.php">Register</a></li>
-          <li><a href="login.php">Login</a></li>
+          <?php if(isset($_SESSION['firstName'])) { ?>
+            <li><a href="#">My Account</a></li>
+            <li><a href="logged_out.php">Logout</a></li>
+          <?php }
+          else { ?>
+            <li><a href="register_user.php">Register</a></li>
+            <li><a href="login.php">Login</a></li>
+          <?php } ?>
         </ul>
       </div>
     </nav>
