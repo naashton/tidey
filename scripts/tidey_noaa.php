@@ -4,7 +4,9 @@ $curl = curl_init();
 
 //$product = "air_temperature";
 //$product = "water_temperature";
-$product = "air_pressure";
+//$product = "air_pressure";
+//$product = "wind";
+$temp_pressure = array("air_temperature", "water_temperature", "air_pressure");
 $station = "8658163";
 
 curl_setopt_array($curl, array(
@@ -36,8 +38,15 @@ if ($err) {
 	}
 	printf("connection good");
 
-	$t = $json["data"][$i]['t'];
-	$v = $json["data"][$i]['v'];
+	if (in_array($product, $temp_pressure)){
+	    $t = $json["data"][$i]['t'];
+	    $v = $json["data"][$i]['v'];
+
+	}else if ($product = "wind"){
+	    $t = $json["data"][$i]['t'];
+	    $s = $json["data"][$i]['s'];
+	    $d = $json["data"][$i]['dr'];
+	}
 	
 	// Remove data out of database before adding new data
 	if ($product == "air_temperature"){
@@ -49,7 +58,10 @@ if ($err) {
 	}else if ($product == "air_pressure"){
 	    $query = "insert into air_pressure " . "values(\"" . $t ."\"," . $v .",\"" . $location ."\")";
 	    printf($query);
-	} 
+	}else if ($product == "wind"){
+	    $query = "insert into wind " . "values(\"" . $t ."\"," . $s .",\"" . $d ."\",\"" . $location ."\")";
+	    printf($query); 
+	}
 	mysqli_query($conn, $query) or die(mysqli_error($conn));
    }
 }
