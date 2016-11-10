@@ -23,20 +23,21 @@ if ($err) {
 } else {
     $json = json_decode($response, true); 
     print_r($json);
-
     $location = $json["metadata"]["name"];
+
+    $servername = "localhost";
+    $username = "brk3269";
+    $password = "carkorabi77888";
+
+    $conn = mysqli_connect($servername, $username, $password, "brk3269");
+
+    if (mysqli_connect_errno()) {
+        printf("Connection failed:\n", mysqli_connect_error());
+        exit();
+    }
+    printf("connection good");
+
     for($i=0; $i<count($json["data"]); $i++){
-	$servername = "localhost";
-	$username = "brk3269";
-	$password = "carkorabi77888";
-
-	$conn = mysqli_connect($servername, $username, $password, "brk3269");
-
-	if (mysqli_connect_errno()) {
-	    printf("Connection failed:\n", mysqli_connect_error());
-	    exit();
-	}
-	printf("connection good");
 
 	if (in_array($product, $temp_pressure)){
 	    $t = $json["data"][$i]['t'];
@@ -62,7 +63,14 @@ if ($err) {
 	    $query = "insert into wind " . "values(\"" . $t ."\"," . $s .",\"" . $d ."\",\"" . $location ."\")";
 	    printf($query); 
 	}
-	mysqli_query($conn, $query) or die(mysqli_error($conn));
-   }
+    	mysqli_query($conn, $query) or die(mysqli_error($conn));
+    }
+    if ($product == "air_temperature"){
+	$query_create_view = "create view AIR_TEMP_Wrightsville as select ttime, air_temperature from air_temp where location='Wrightsville Beach';";
+    }else if ($product == "water_temperature"){
+	$query_create_view = "create view WATER_TEMP_Wrightsville as select ttime, water_temperature from water_temp where location='Wrightsville Beach';";	
+    }
+    mysqli_query($conn, $query_create_view) or die(mysqli_error($conn));
+	
 }
 ?>

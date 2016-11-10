@@ -11,22 +11,22 @@ if (mysqli_connect_errno()) {
     exit();
 }
 
-$query = "select ttime, water_temperature from water_temp;";
+$query = "select * from WATER_TEMP_Wrightsville;";
 $data = array();
 $data['water_temp'] = 'Time';
 if ($result = mysqli_query($conn, $query)) {
-    while($row = mysqli_fetch_assoc($result)){
-	$data['data'][] = $row["ttime"];
-    }
+while($row = mysqli_fetch_assoc($result)){
+    $data['data'][] = $row["ttime"];
+}   
 }
 
 $data2= array();
 $data2['water_temp'] = 'WaterTemp';
 if ($result = mysqli_query($conn, $query)) {
-    while($row = mysqli_fetch_assoc($result)){
-	$data2['data'][] = $row["water_temperature"];
-    }
+while($row = mysqli_fetch_assoc($result)){
+    $data2['data'][] = $row["water_temperature"];
 }
+} 
 
 $result = array();
 array_push($result, $data);
