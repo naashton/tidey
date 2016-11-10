@@ -11,21 +11,16 @@ if (mysqli_connect_errno()) {
     exit();
 }
 
-$query = "select * from AIR_PRESSURE_Wrightsville;";
+$query = "call AIR_PRESSURE_Wrightsville();";
 $data = array();
-$data['air_temp'] = 'Time';
-if ($result = mysqli_query($conn, $query)) {
-while($row = mysqli_fetch_assoc($result)){
-    $data['data'][] = $row["ttime"];
-}
-}
-
 $data2= array();
+$data['air_temp'] = 'Time';
 $data2['air_pressure'] = 'Air Pressure';
 if ($result = mysqli_query($conn, $query)) {
-while($row = mysqli_fetch_assoc($result)){
-    $data2['data'][] = $row["air_pressure"];
-}
+    while($row = mysqli_fetch_assoc($result)){
+        $data['data'][] = $row["ttime"];
+        $data2['data'][] = $row["air_pressure"];
+    }
 }
 
 $result = array();

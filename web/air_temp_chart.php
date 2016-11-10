@@ -13,19 +13,14 @@ if (mysqli_connect_errno()) {
 
 $query = "select * from AIR_TEMP_Wrightsville;";
 $data = array();
-$data['air_temp'] = 'Time';
-if ($result = mysqli_query($conn, $query)) {
-while($row = mysqli_fetch_assoc($result)){
-    $data['data'][] = $row["ttime"];
-}
-}
-
 $data2= array();
+$data['air_temp'] = 'Time';
 $data2['air_temp'] = 'AirTemp';
 if ($result = mysqli_query($conn, $query)) {
-while($row = mysqli_fetch_assoc($result)){
-    $data2['data'][] = $row["air_temperature"];
-}
+    while($row = mysqli_fetch_assoc($result)){
+        $data['data'][] = $row["ttime"];
+        $data2['data'][] = $row["air_temperature"];
+    }
 }
 
 $result = array();

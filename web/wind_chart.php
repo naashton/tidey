@@ -11,21 +11,16 @@ if (mysqli_connect_errno()) {
     exit();
 }
 
-$query = "select * from WIND_Wrightsville;";
+$query = "call WIND_Wrightsville();";
 $data = array();
-$data['air_temp'] = 'Time';
-if ($result = mysqli_query($conn, $query)) {
-while($row = mysqli_fetch_assoc($result)){
-    $data['data'][] = $row["ttime"];
-}
-}
-
 $data2= array();
+$data['air_temp'] = 'Time';
 $data2['speed'] = 'Speed';
 if ($result = mysqli_query($conn, $query)) {
-while($row = mysqli_fetch_assoc($result)){
-    $data2['data'][] = $row["speed"];
-}
+    while($row = mysqli_fetch_assoc($result)){
+        $data['data'][] = $row["ttime"];
+        $data2['data'][] = $row["speed"];
+    }
 }
 
 $result = array();
