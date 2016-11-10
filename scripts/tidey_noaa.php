@@ -69,8 +69,11 @@ if ($err) {
 	$query_create_view = "create view AIR_TEMP_Wrightsville as select ttime, air_temperature from air_temp where location='Wrightsville Beach';";
     }else if ($product == "water_temperature"){
 	$query_create_view = "create view WATER_TEMP_Wrightsville as select ttime, water_temperature from water_temp where location='Wrightsville Beach';";	
+    }else if ($product == "air_pressure"){
+	$query_create_view = "create view AIR_PRESSURE_Wrightsville as select ttime, air_pressure from air_pressure where location='Wrightsville Beach';";	
+    }else if ($product == "wind"){
+	$query_create_view = "create view WIND_Wrightsville as select ttime, speed from wind where location='Wrightsville Beach';";	
     }
     mysqli_query($conn, $query_create_view) or die(mysqli_error($conn));
-	
 }
 ?>
