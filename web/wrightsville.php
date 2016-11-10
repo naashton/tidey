@@ -9,7 +9,7 @@
  * (c) 2010-2016 Torstein Honsi
  *
  * License: www.highcharts.com/license
- * 
+ *
  * Dark theme for Highcharts JS
  * @author Torstein Honsi
  */
@@ -338,6 +338,7 @@ Highcharts.setOptions(Highcharts.theme);
     });
     </script>
     </head>
+	<body>
 		<div class="container">
 			<div class="row">
 				<div class = "container">
@@ -370,6 +371,6 @@ Highcharts.setOptions(Highcharts.theme);
 				</div>
 			</div>
 		</div>
-	</br>
+	</body>
 
 <?php include './includes/footer.php'; ?>

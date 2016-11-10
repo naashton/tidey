@@ -10,3 +10,32 @@
   width: 10%;
   height: auto;
 }
+
+/* Color codes for adjustments for gray background */
+body {
+  background-color: #2a2a2b;
+}
+
+p {
+  color: #E0E0E3;
+}
+
+input {
+  color: black;
+}
+
+legend {
+  color: #E0E0E3;
+}
+
+h2 {
+  color: #E0E0E3;
+}
+
+h3 {
+  color: #E0E0E3;
+}
+
+label {
+  color: #E0E0E3;
+}
