@@ -6,7 +6,7 @@
   filter: grayscale(100%);
 }
 
-.footerlogo {
-  height: 25px;
-  width: 5%;
+.footerimage {
+  width: 10%;
+  height: auto;
 }

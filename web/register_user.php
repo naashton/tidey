@@ -35,7 +35,10 @@
 
 	if (!$missing && !$errors) {
 		require_once ('../../pdo_config.php'); // Connect to the db.
-		$sql = "INSERT into Tidey_reg_users (firstName, lastName, emailAddr, pw, zip) VALUES (:firstName, :lastName, :email, :pw, :zip)";
+		$folder = preg_replace("/[^a-zA-Z0-9]/","",$email);
+		//make lowercase
+		$folder = strtolower($folder);
+		$sql = "INSERT into Tidey_reg_users (firstName, lastName, emailAddr, pw, zip, folder) VALUES (:firstName, :lastName, :email, :pw, :zip, :folder)";
 		$pw =
 	$stmt= $conn->prepare($sql);
 	$stmt->bindValue(':firstName', $firstname);
@@ -43,6 +46,7 @@
 	$stmt->bindValue(':email', $email);
 	$stmt->bindValue(':pw', password_hash($password1, PASSWORD_DEFAULT));
 	$stmt->bindValue(':zip',$zipcode);
+	$stmt->bindValue(':folder', $folder);
 	$success = $stmt->execute();
 	$errorInfo = $stmt->errorInfo();
 	if (isset($errorInfo[2])) {
@@ -50,7 +54,9 @@
 		echo "Error: Try a different email. Click 'Register' at top of page.";
 	}
 	else {
-		echo '<main><h2>Thank you for registering</h2><h3>We have saved your information</h3></main>';
+		echo '<main class = "container"><h2>Thank you for registering</h2><h3 class = "container">We have saved your information</h3></main>';
+		$dirPath = "../uploads/".$folder;
+		mkdir($dirPath,0777);
 	}
 	include 'includes/footer.php';
 	exit;
