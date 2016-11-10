@@ -17,7 +17,7 @@
 
 <body>
   <div class="container">
-    <nav class="navbar navbar-default">
+    <nav class="navbar navbar-inverse">
       <div class="container-fluid">
         <div class="navbar-header">
           <a class="navbar-brand" href="home.php">
@@ -36,6 +36,8 @@
               </ul>
             </li>
           <?php if(isset($_SESSION['firstName'])) { ?>
+            <li><a href="images.php">View Images</a></li>
+            <li><a href="upload_image.php">Upload Images</a></li>
             <li><a href="#">My Account</a></li>
             <li><a href="logged_out.php">Logout</a></li>
           <?php }

@@ -15,11 +15,12 @@ session_start();
 		require 'includes/header.php';
 		?>
 		<main>
-		<?php
-		echo '<h2>'.$message.'</h2>';
-		echo '<h3>'.$message2.'</h3>';
-		?>
-
+			<div class = "container">
+				<?php
+				echo '<h2>'.$message.'</h2>';
+				echo '<h3>'.$message2.'</h3>';
+				?>
+			</div>
 	</main>
 	<?php // Include the footer and quit the script:
 	include ('./includes/footer.php');
