@@ -18,7 +18,7 @@ if($stmt = $conn->prepare($SQL)){
 	echo "Binding params failed: (" . $stmt->errno . ") " . $stmt->$error;
     }
 
-    $location = "Carolina Beach";
+    $location = "Beaufort";
     $latitude = "67";
     $longitude = "67";
 

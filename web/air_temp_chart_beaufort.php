@@ -11,15 +11,15 @@ if (mysqli_connect_errno()) {
     exit();
 }
 
-$query = "call AIR_PRESSURE_Wrightsville();";
+$query = "select * from AIR_TEMP_Beaufort;";
 $data = array();
 $data2= array();
 $data['air_temp'] = 'Time';
-$data2['air_pressure'] = 'Air Pressure';
+$data2['air_temp'] = 'AirTemp';
 if ($result = mysqli_query($conn, $query)) {
     while($row = mysqli_fetch_assoc($result)){
         $data['data'][] = $row["ttime"];
-        $data2['data'][] = $row["air_pressure"];
+        $data2['data'][] = $row["air_temperature"];
     }
 }
 

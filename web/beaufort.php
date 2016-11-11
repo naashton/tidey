@@ -246,7 +246,7 @@ Highcharts.setOptions(Highcharts.theme);
         series: [{showInLegend: false,}]
       };
 
-      $.getJSON('air_temp_chart_wrightsville.php', function(json) {
+      $.getJSON('air_temp_chart_beaufort.php', function(json) {
 	options.xAxis.categories = json[0]['data'];
     	options.series[0].data = json[1].data;
     	chart = new Highcharts.Chart(options);
@@ -274,7 +274,7 @@ Highcharts.setOptions(Highcharts.theme);
         series: [{showInLegend: false,}]
       };
 
-      $.getJSON('water_temp_chart_wrightsville.php', function(json) {
+      $.getJSON('water_temp_chart_beaufort.php', function(json) {
 	options2.xAxis.categories = json[0]['data'];
     	options2.series[0].data = json[1].data;
     	chart2 = new Highcharts.Chart(options2);
@@ -302,7 +302,7 @@ Highcharts.setOptions(Highcharts.theme);
         series: [{showInLegend: false,}]
       };
 
-      $.getJSON('air_pressure_chart_wrightsville.php', function(json) {
+      $.getJSON('air_pressure_chart_beaufort.php', function(json) {
 	options3.xAxis.categories = json[0]['data'];
     	options3.series[0].data = json[1].data;
     	chart3 = new Highcharts.Chart(options3);
@@ -330,7 +330,7 @@ Highcharts.setOptions(Highcharts.theme);
         series: [{showInLegend: false,}]
       };
 
-      $.getJSON('wind_chart_wrightsville.php', function(json) {
+      $.getJSON('wind_chart_beaufort.php', function(json) {
 	options4.xAxis.categories = json[0]['data'];
     	options4.series[0].data = json[1].data;
     	chart4 = new Highcharts.Chart(options4);
