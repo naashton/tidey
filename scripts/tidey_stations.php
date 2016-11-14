@@ -19,14 +19,14 @@ if($stmt = $conn->prepare($SQL)){
     }
 
     $location = "Beaufort";
-    $latitude = "67";
-    $longitude = "67";
+    $latitude = "34";
+    $longitude = "76";
 
     if (!$stmt->execute()) {
         echo "Execute failed: (" . $stmt->errno . ") " . $stmt->error;
     }
 
-    $location = "Topsail Beach";
+    $location = "Sample Beach";
     $latitude = "77";
     $longitude = "77";
 
