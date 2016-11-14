@@ -56,7 +56,10 @@
 	else {
 		echo '<main class = "container"><h2>Thank you for registering</h2><h3 class = "container">We have saved your information</h3></main>';
 		$dirPath = "../uploads/".$folder;
+		$old = umask(0);
 		mkdir($dirPath,0777);
+		umask($old); 
+		//mkdir($dirPath,777);
 	}
 	include 'includes/footer.php';
 	exit;
