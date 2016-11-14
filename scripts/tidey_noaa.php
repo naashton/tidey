@@ -62,6 +62,7 @@ for($z = 0; $z < count($stations); $z++){
 			    }
 			}
 			
+			mysqli_query($conn, "START TRANSACTION");
 
 			if ($product == "air_temperature"){
 			    $query = "insert into air_temperature " . "values($element,\"" . $t . "\", $v,\"" . $location . "\")";
@@ -81,6 +82,7 @@ for($z = 0; $z < count($stations); $z++){
 
 			}
 			mysqli_query($conn, $query) or die(mysqli_error($conn));
+			mysqli_commit($conn);
 	                $element++;
 		    }
 		}

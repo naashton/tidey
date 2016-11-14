@@ -335,6 +335,33 @@ Highcharts.setOptions(Highcharts.theme);
     	options4.series[0].data = json[1].data;
     	chart4 = new Highcharts.Chart(options4);
       });
+
+    var options5 = {
+        chart: {
+          renderTo: 'airtempscatter',
+          defaultSeriesType: 'scatter',
+        },
+    title: {
+        text: 'Air Temperature Based on Temperature Range',
+    },
+    xAxis: {
+	categories: []
+    },
+    yAxis: {
+        title: {
+          text: 'Temperature'
+        },
+    },
+    credits: {
+        enabled: false
+    },
+        series: [{showInLegend: false,}]
+      };
+
+      $.getJSON('air_temperature_scatter.php', function(json) {
+    	options5.series[0].data = json[1].data;
+    	chart5= new Highcharts.Chart(options5);
+      });
     });
     </script>
     </head>
@@ -344,7 +371,7 @@ Highcharts.setOptions(Highcharts.theme);
 				<div class = "container">
 				    <table>
 					<tr>
-					<div class="col-md-6 darkbg">
+					<div class="col-md-6">
 						<div id="airtemp">
 
 						</div>
@@ -356,7 +383,7 @@ Highcharts.setOptions(Highcharts.theme);
 					</div>
 					</tr>
 					<tr>
-					<div class="col-md-6 darkbg">
+					<div class="col-md-6">
 						<div id="airpressure">
 
 						</div>
