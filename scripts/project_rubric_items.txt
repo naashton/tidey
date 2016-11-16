@@ -1,0 +1,43 @@
+Cartesian Products:
+// Both pull the latest data from air pressure, air temperature and water temperature for the last known time entry.
+select air_pressure.location, air_pressure.ttime, air_pressure.air_pressure, air_temperature.air_temperature, water_temperature.water_temperature from air_pressure, air_temperature, water_temperature where air_pressure.ttime = air_temperature.ttime and air_temperature.location = 'Wrightsville Beach' and air_pressure.location = 'Wrightsville Beach' and water_temperature.location = 'Wrightsville Beach' order by air_pressure.ttime desc limit 1;
+
+select air_pressure.location, air_pressure.ttime, air_pressure.air_pressure, air_temperature.air_temperature, water_temperature.water_temperature from air_pressure, air_temperature, water_temperature where air_pressure.ttime = air_temperature.ttime and air_temperature.location = 'Beaufort' and air_pressure.location = 'Beaufort' and water_temperature.location = 'Beaufort' order by air_pressure.ttime desc limit 1;
+
+Inner Join:
+select air_temperature.ttime, air_temperature.air_temperature, air_pressure.air_pressure from air_temperature inner join air_pressure on air_temperature.ttime = air_pressure.ttime and air_temperature.location = "Wrightsville Beach" and air_pressure.location = "Wrightsville Beach";
+
+Unions:
+// Shows the same times used from each of the two tables, air pressure and air temperature.
+select ttime from air_temperature union select ttime from air_pressure order by ttime;
+// Shows the common locations in the two tables.
+select location from air_temperature union select location from air_pressure order by location;
+
+Intersect:
+// Shows the same temperature values used in the air and water table with no duplicates.
+select air_temperature as same_temp from air_temperature where location = 'Beaufort' and air_temperature in (select water_temperature from water_temperature where location = 'Beaufort') group by same_temp;
+
+Set Difference:
+// Shows all the temperatures in air_temperature that are not used in water_temperature
+select air_temperature as diff_temp from air_temperature where location = 'Beaufort' and air_temperature not in (select water_temperature from water_temperature where location = 'Beaufort') group by diff_temp;
+
+Sum, Average, Max, Min:
+select sum(air_temperature) from air_temperature;
+select avg(air_temperature) from air_temperature;
+select max(air_temperature) from air_temperature;
+select min(air_temperature) from air_temperature;
+
+Nested Subqueries:
+// Creates two sub queries called data that return the data for the start of the current date at time stamp 00:00 for both locations.
+select data.* from (select air_pressure.location, air_pressure.ttime, air_pressure.air_pressure, air_temperature.air_temperature, water_temperature.water_temperature from air_pressure, air_temperature, water_temperature where air_pressure.ttime = air_temperature.ttime and air_temperature.location = 'Beaufort' and air_pressure.location = 'Beaufort' and water_temperature.location = 'Beaufort' group by air_pressure.ttime) data where data.ttime = curdate();
+
+select data.* from (select air_pressure.location, air_pressure.ttime, air_pressure.air_pressure, air_temperature.air_temperature, water_temperature.water_temperature from air_pressure, air_temperature, water_temperature where air_pressure.ttime = air_temperature.ttime and air_temperature.location = 'Wrightsville Beach' and air_pressure.location = 'Wrightsville Beach' and water_temperature.location = 'Wrightsville Beach' group by air_pressure.ttime) data where data.ttime = curdate();
+
+number 5 triggers
+https://www.siteground.com/kb/what_are_mysql_triggers_and_how_to_use_them/
+
+Stored Functions useage:
+// Display Hot, Moderate or Cold based on the water temperature or air temperature passed to the function.
+select ttime, WaterTempLevel(water_temperature) from water_temperature order by ttime;
+select ttime, AirTempLevel(air_temperature) from air_temperature order by ttime;
+
