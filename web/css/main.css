@@ -12,30 +12,18 @@
 }
 
 /* Color codes for adjustments for gray background */
-body {
-  background-color: #2a2a2b;
-}
+body { background-color: #2a2a2b; }
 
-p {
-  color: #E0E0E3;
-}
+p { color: #E0E0E3; }
 
-input {
-  color: black;
-}
+input { color: black; }
 
-legend {
-  color: #E0E0E3;
-}
+legend { color: #E0E0E3;}
 
-h2 {
-  color: #E0E0E3;
-}
+h2 { color: #E0E0E3; }
 
-h3 {
-  color: #E0E0E3;
-}
+h3 { color: #E0E0E3; }
 
-label {
-  color: #E0E0E3;
-}
+label { color: #E0E0E3; }
+
+th { color: #E0E0E3; }

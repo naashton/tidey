@@ -369,32 +369,46 @@ Highcharts.setOptions(Highcharts.theme);
 		<div class="container">
 			<div class="row">
 				<div class = "container">
-				    <table>
-					<tr>
-					<div class="col-md-6">
-						<div id="airtemp">
+				  <table>
+						<tr>
+							<div class="col-md-6">
+								<div id="airtemp">
 
-						</div>
-					</div>
-					<div class="col-md-6">
-						<div id="watertemp"
+								</div>
+							</div>
+							<div class="col-md-6">
+								<div id="watertemp">
 
-						</div>
-					</div>
-					</tr>
-					<tr>
-					<div class="col-md-6">
-						<div id="airpressure">
+								</div>
+							</div>
+						</tr>
+						<tr>
+							<div class="col-md-6">
+								<div id="airpressure">
 
-						</div>
-					</div>
-					<div class="col-md-6">
-						<div id="wind"
+								</div>
+							</div>
+							<div class="col-md-6">
+								<div id="wind">
 
-						</div>
-					</div>
-					</tr>
-				    </table>
+								</div>
+							</div>
+						</tr>
+						<tr>
+							<div class="col-md-6">
+								<table class="table table-hover">
+							    <thead>
+							      <tr>
+							        <th>Date</th>
+							        <th>High 1</th>
+							        <th>Low 1</th>
+											<th>High 2</th>
+											<th>Low 2</th>
+							      </tr>
+							    </thead>
+							</div>
+						</tr>
+				  </table>
 				</div>
 			</div>
 		</div>
