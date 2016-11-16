@@ -8,7 +8,7 @@
 	<div class="container">
 		<div class="jumbotron">
 			<h1>Tidey</h1>
-			<p>Coastal weather data at your finger tips.</p>
+			<p>Coastal weather data trends at your finger tips.</p>
 		</div>
 	</div>
 </main>

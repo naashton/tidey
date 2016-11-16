@@ -26,7 +26,6 @@
         </div>
         <ul class="nav navbar-nav">
             <li><a href="home.php">Home</a></li>
-            <li><a href="#">Contact Us</a></li>
             <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Beaches<span class="caret"></span></a>
                 <ul class="dropdown-menu">

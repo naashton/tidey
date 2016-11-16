@@ -342,37 +342,49 @@ Highcharts.setOptions(Highcharts.theme);
 		<div class="container">
 			<div class="row">
 				<div class = "container">
-				    <table>
-					<tr>
-					<div class="col-md-6 darkbg">
-						<div id="airtemp">
+					<table>
+						<tr>
+							<div class = "col-md-12">
+								<div class = "titletext">
+									<h1>DAILY CHARTS</h1>
+									<hr>
+								</div>
+							</div>
+						</tr>
+						<tr>
+							<div class="col-md-6 darkbg">
+								<div id="airtemp">
 
-						</div>
-					</div>
-					<div class="col-md-6">
-						<div id="watertemp"
+								</div>
+							</div>
+						<div class="col-md-6">
+							<div id="watertemp">
 
+							</div>
 						</div>
-					</div>
-					</tr>
-					<tr>
-					<div class="col-md-6 darkbg">
-						<div id="airpressure">
+						</tr>
+						<tr>
+							<div class="col-md-6 darkbg">
+								<div id="airpressure">
 
-						</div>
-					</div>
-					<div class="col-md-6">
-						<div id="wind"
+								</div>
+							</div>
+							<div class="col-md-6">
+								<div id="wind">
 
-						</div>
-					</div>
-					</tr>
-                                        <tr>
-                                             <div class="col-md-6">
-                                                 <?php include 'tides_table_beaufort.php'; ?>
-                                             </div>
-                                        </tr>
-				    </table>
+								</div>
+							</div>
+						</tr>
+	          <tr>
+             <div class="col-md-12">
+							 <div class = "titletext">
+								<h1>DAILY TIDE TABLE</h1>
+								<hr>
+							 </div>
+             	 <?php include 'tides_table_beaufort.php'; ?>
+             </div>
+	          </tr>
+				  </table>
 				</div>
 			</div>
 		</div>
