@@ -1,4 +1,4 @@
-/*Brandon Harris x*/
+/*Brandon Harris */
 .jumbotron {
   color: white;
   background-image: url("../images/jumbopic.png");
@@ -11,7 +11,13 @@
   height: auto;
 }
 
-/* Color codes for adjustments for gray background */
+.titletext {
+  color: #2B908F;
+  font-family: 'Unica One';
+  text-align: center;
+}
+
+/* Color codes for adjustments for gray background  #2B908F is teal */
 body { background-color: #2a2a2b; }
 
 p { color: #E0E0E3; }
@@ -26,4 +32,15 @@ h3 { color: #E0E0E3; }
 
 label { color: #E0E0E3; }
 
-th { color: #E0E0E3; }
+hr { border-color: #2B908F; }
+
+th {
+  color: #2B908F;
+  font-family: 'Unica One';
+ }
+
+td {
+  color: #E0E0E3;
+  font-family: 'Unica One';
+  font-weight: bold;
+ }

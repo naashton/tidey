@@ -1,12 +1,12 @@
 <?php
-echo "<table class=\"table table-hover\">
+echo "<table class=\"table\">
         <thead>
 	    <tr>
-	        <th>Date</th>
-	        <th>High 1</th>
-	        <th>Low 1</th>
-	        <th>High 2</th>
-	        <th>Low 2</th>
+	        <th>DATE</th>
+	        <th>HIGH 1</th>
+	        <th>LOW 1</th>
+	        <th>HIGH 2</th>
+	        <th>LOW 2</th>
 	    </tr>
 	</thead>";
 
