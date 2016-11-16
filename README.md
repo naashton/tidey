@@ -1,4 +1,7 @@
 # tidey
-Web based weather application that gets forecasting data from Accu Weather's API.
+Web based weather application that pulls data from NOAA's API for data on Wrightsville Beach and Beaufort.
 
-The Tidey Engine is the main application behind the Tidey based web app that fetch's pertinent weather data from the Accu Weather API.
+Data for the four main highcharts is dynamically updated every hour and the tide data is changed to reflect the current date.
+
+Developed by: Bradley Korabik, Brandon Harris, Nick Ashton
+

@@ -373,7 +373,7 @@ Highcharts.setOptions(Highcharts.theme);
 						<tr>
 							<div class = "col-md-12">
 								<div class = "titletext">
-									<h1>DAILY CHARTS</h1>
+									<h1>WRIGHTSVILLE BEACH DAILY CHARTS</h1>
 									<hr>
 								</div>
 							</div>
@@ -405,7 +405,7 @@ Highcharts.setOptions(Highcharts.theme);
 						<tr>
 							<div class="col-md-12">   <!-- tidal data -->
 								<div class = "titletext">
-									<h1>DAILY TIDE TABLE</h1>
+									<h1>WRIGHTSVILLE BEACH DAILY TIDE TABLE</h1>
 									<hr>
 								</div>
 							  <?php include 'tides_table_wrightsville.php'; ?>
