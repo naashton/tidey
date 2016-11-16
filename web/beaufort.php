@@ -367,6 +367,11 @@ Highcharts.setOptions(Highcharts.theme);
 						</div>
 					</div>
 					</tr>
+                                        <tr>
+                                             <div class="col-md-6">
+                                                 <?php include 'tides_table_beaufort.php'; ?>
+                                             </div>
+                                        </tr>
 				    </table>
 				</div>
 			</div>

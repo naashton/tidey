@@ -396,16 +396,7 @@ Highcharts.setOptions(Highcharts.theme);
 						</tr>
 						<tr>
 							<div class="col-md-6">
-								<table class="table table-hover">
-							    <thead>
-							      <tr>
-							        <th>Date</th>
-							        <th>High 1</th>
-							        <th>Low 1</th>
-											<th>High 2</th>
-											<th>Low 2</th>
-							      </tr>
-							    </thead>
+							    <?php include 'tides_table_wrightsville.php'; ?>
 							</div>
 						</tr>
 				  </table>
