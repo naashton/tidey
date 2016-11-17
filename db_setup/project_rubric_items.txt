@@ -33,8 +33,9 @@ select data.* from (select air_pressure.location, air_pressure.ttime, air_pressu
 
 select data.* from (select air_pressure.location, air_pressure.ttime, air_pressure.air_pressure, air_temperature.air_temperature, water_temperature.water_temperature from air_pressure, air_temperature, water_temperature where air_pressure.ttime = air_temperature.ttime and air_temperature.location = 'Wrightsville Beach' and air_pressure.location = 'Wrightsville Beach' and water_temperature.location = 'Wrightsville Beach' group by air_pressure.ttime) data where data.ttime = curdate();
 
-number 5 triggers
-https://www.siteground.com/kb/what_are_mysql_triggers_and_how_to_use_them/
+Trigger
+// When an insert is added to the stations table it logs the entry in the log_station table.
+insert into station values (25, 80, "Miami");
 
 Stored Functions useage:
 // Display Hot, Moderate or Cold based on the water temperature or air temperature passed to the function.

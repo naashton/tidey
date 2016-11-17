@@ -13,6 +13,14 @@ create table station
 	 primary key (location)
   ) ENGINE = INNODB;  
 
+create table log_station
+	(latitude		varchar(11),
+	 longitude	varchar(11),
+	 location		varchar(30) not null,
+	 foreign key(location) references station(location)
+	 on update cascade on delete cascade
+  ) ENGINE = INNODB;  
+
 create table tides
 	(element                  decimal(6,1) not null,
 	 location	varchar(30) not null,
@@ -129,5 +137,16 @@ begin
         set temp_condition = 'COLD';
     end if;
     return (temp_condition);
+end//
+delimiter ;
+
+drop trigger IF EXISTS after_insert_stations;
+delimiter //
+create trigger after_insert_stations
+after insert on station 
+for each row
+begin
+    insert into log_station (latitude, longitude, location)
+	values (new.latitude, new.longitude, new.location);
 end//
 delimiter ;
