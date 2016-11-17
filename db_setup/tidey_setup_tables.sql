@@ -5,6 +5,7 @@ drop table IF EXISTS wind;
 drop table IF EXISTS air_temperature;
 drop table IF EXISTS water_temperature;
 drop table IF EXISTS air_pressure;
+drop table IF EXISTS log_station;
 
 create table station
 	(latitude		varchar(11),
