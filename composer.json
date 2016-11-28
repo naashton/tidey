@@ -1,0 +1,18 @@
+{
+    "name": "accountdev/hello-world",
+    "description": "project",
+    "authors": [
+        {
+            "name": "Ankita Srivastava",
+            "email": "ankita.srivastava2407@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.0"
+    },
+    "autoload": {
+        "psr-0": {
+            "HelloWorld": "src/"
+        }
+    }
+}
