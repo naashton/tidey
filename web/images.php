@@ -1,5 +1,6 @@
 <?php require 'includes/header.php';
-$folder = $_SESSION['folder'];
+$email = $_SESSION['email'];
+$folder = preg_replace('/[^a-z0-9]/i', '', $email);
 ?>
 <div class = "container">
 	<?php

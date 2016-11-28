@@ -1,7 +1,8 @@
 <?php
 // This page displays an image uploaded by a user.
 session_start();
-$folder = $_SESSION['folder'];
+$email = $_SESSION['email'];
+$folder = preg_replace('/[^a-z0-9]/i', '', $email);
 $name = FALSE; // Flag variable:
 
 // Check for an image name in the URL:

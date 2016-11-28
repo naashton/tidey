@@ -1,9 +1,8 @@
 <?php
-	session_start();
 	require 'includes/header.php';
 	require '../../pdo_config.php';
-	$folder = $_SESSION['folder'];
 	$email = $_SESSION['email'];
+	$folder = preg_replace('/[^a-z0-9]/i', '', $email);
 	echo "<main>";
 	// Check if the form has been submitted:
 	if (isset($_POST['submit'])) {
@@ -13,6 +12,8 @@
 		$allowed = array ('image/pjpeg', 'image/jpeg', 'image/JPG', 'image/X-PNG', 'image/PNG', 'image/png', 'image/x-png');
 		if (in_array($_FILES['upload']['type'], $allowed)) {
 			// Move the file over.
+			?>
+			<div class = "container"> <?php
 			if (move_uploaded_file ($_FILES['upload']['tmp_name'], "../uploads/{$folder}/{$_FILES['upload']['name']}")) {
 				echo '<h2>The file '.$_FILES['upload']['name'].' has been uploaded!</h2>';
 				echo "</main>";
@@ -67,6 +68,7 @@
 				break;
 		} // End of switch.
 		echo '</strong></p>';
+		?> </div> <?php
 
 	} // End of error IF.
 
