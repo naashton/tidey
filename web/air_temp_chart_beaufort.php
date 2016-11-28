@@ -11,20 +11,15 @@ if (mysqli_connect_errno()) {
     exit();
 }
 
-$query = "select ttime, water_temperature from water_temp;";
+$query = "select * from AIR_TEMP_Beaufort;";
 $data = array();
-$data['water_temp'] = 'Time';
-if ($result = mysqli_query($conn, $query)) {
-    while($row = mysqli_fetch_assoc($result)){
-	$data['data'][] = $row["ttime"];
-    }
-}
-
 $data2= array();
-$data2['water_temp'] = 'WaterTemp';
+$data['air_temp'] = 'Time';
+$data2['air_temp'] = 'AirTemp';
 if ($result = mysqli_query($conn, $query)) {
     while($row = mysqli_fetch_assoc($result)){
-	$data2['data'][] = $row["water_temperature"];
+        $data['data'][] = $row["ttime"];
+        $data2['data'][] = $row["air_temperature"];
     }
 }
 

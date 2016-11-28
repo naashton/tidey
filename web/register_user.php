@@ -35,7 +35,10 @@
 
 	if (!$missing && !$errors) {
 		require_once ('../../pdo_config.php'); // Connect to the db.
-		$sql = "INSERT into Tidey_reg_users (firstName, lastName, emailAddr, pw, zip) VALUES (:firstName, :lastName, :email, :pw, :zip)";
+		$folder = preg_replace("/[^a-zA-Z0-9]/","",$email);
+		//make lowercase
+		$folder = strtolower($folder);
+		$sql = "INSERT into Tidey_reg_users (firstName, lastName, emailAddr, pw, zip, folder) VALUES (:firstName, :lastName, :email, :pw, :zip, :folder)";
 		$pw =
 	$stmt= $conn->prepare($sql);
 	$stmt->bindValue(':firstName', $firstname);
@@ -43,6 +46,7 @@
 	$stmt->bindValue(':email', $email);
 	$stmt->bindValue(':pw', password_hash($password1, PASSWORD_DEFAULT));
 	$stmt->bindValue(':zip',$zipcode);
+	$stmt->bindValue(':folder', $folder);
 	$success = $stmt->execute();
 	$errorInfo = $stmt->errorInfo();
 	if (isset($errorInfo[2])) {
@@ -50,7 +54,12 @@
 		echo "Error: Try a different email. Click 'Register' at top of page.";
 	}
 	else {
-		echo '<main><h2>Thank you for registering</h2><h3>We have saved your information</h3></main>';
+		echo '<main class = "container"><h2>Thank you for registering</h2><h3 class = "container">We have saved your information</h3></main>';
+		$dirPath = "../uploads/".$folder;
+		$old = umask(0);
+		mkdir($dirPath,0777);
+		umask($old);
+		//mkdir($dirPath,777);
 	}
 	include 'includes/footer.php';
 	exit;
@@ -70,7 +79,7 @@
 							<?php if ($missing && in_array('firstname', $missing)) { ?>
 			                        <span class="warning">Please enter your first name</span>
 			                    <?php } ?> </label>
-			                <input name="firstname" id="fn" type="text"
+			                <br><input name="firstname" id="fn" type="text"
 							 <?php if (isset($firstname)) {
 			                    echo 'value="' . htmlspecialchars($firstname) . '"';
 			                } ?>
@@ -81,7 +90,7 @@
 							<?php if ($missing && in_array('lastname', $missing)) { ?>
 			                        <span class="warning">Please enter your last name</span>
 			                    <?php } ?> </label>
-			                <input name="lastname" id="ln" type="text"
+			                <br><input name="lastname" id="ln" type="text"
 							 <?php if (isset($lastname)) {
 			                    echo 'value="' . htmlspecialchars($lastname) . '"';
 			                } ?>
@@ -96,7 +105,7 @@
 			                        <span class="warning">The email address you provided is not valid</span>
 			                    <?php } ?>
 							</label>
-			                <input name="email" id="email" type="text"
+			                <br><input name="email" id="email" type="text"
 							<?php if (isset($email) && !$errors['email']) {
 			                    echo 'value="' . htmlspecialchars($email) . '"';
 			                } ?>>
@@ -110,18 +119,18 @@
 							<?php if ($missing && in_array('password', $missing)) { ?>
 			                        <span class="warning">Please enter a password</span>
 			                    <?php } ?> </label>
-			                <input name="password1" id="pw1" type="password">
+			                <br><input name="password1" id="pw1" type="password">
 			            </p>
 						<p>
 			                <label for="pw2">Confirm Password:
 							<?php if ($missing && in_array('password', $missing)) { ?>
 			                        <span class="warning">Please confirm the password</span>
 			                    <?php } ?> </label>
-			                <input name="password2" id="pw2" type="password">
+			                <br><input name="password2" id="pw2" type="password">
 			            </p>
 						<p>
 											<label for="zipcode">Zipcode (Optional):</label>
-											<input name="zipcode" id="zipcode" type="text">
+											<br><input name="zipcode" id="zipcode" type="text">
 									</p>
 
 

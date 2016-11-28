@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE HTML>
 <head>
     <!-- Brandon Harris -->
@@ -16,7 +17,7 @@
 
 <body>
   <div class="container">
-    <nav class="navbar navbar-default">
+    <nav class="navbar navbar-inverse">
       <div class="container-fluid">
         <div class="navbar-header">
           <a class="navbar-brand" href="home.php">
@@ -24,17 +25,24 @@
           </a>
         </div>
         <ul class="nav navbar-nav">
-          <li><a href="home.php">Home</a></li>
-          <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Beaches<span class="caret"></span></a>
-              <ul class="dropdown-menu">
-                <li><a href="#">Carolina Beach</a></li>
-                <li><a href="#">Kure Beach</a></li>
-                <li><a href="wrightsville.php">Wrightsville Beach</a></li>
-              </ul>
-            </li>
-          <li><a href="register_user.php">Register</a></li>
-          <li><a href="login.php">Login</a></li>
+            <li><a href="home.php">Home</a></li>
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Beaches<span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                  <li><a href="beaufort.php">Beaufort</a></li>
+                  <li><a href="wrightsville.php">Wrightsville Beach</a></li>
+                </ul>
+              </li>
+            <?php if(isset($_SESSION['firstName'])) { ?>
+              <li><a href="images.php">View Images</a></li>
+              <li><a href="upload_image.php">Upload Images</a></li>
+              <!-- <li><a href="#">My Account</a></li> -->
+              <li><a href="logged_out.php">Logout</a></li>
+            <?php }
+            else { ?>
+              <li><a href="register_user.php">Register</a></li>
+              <li><a href="login.php">Login</a></li>
+            <?php } ?>
         </ul>
       </div>
     </nav>

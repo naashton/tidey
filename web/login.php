@@ -39,9 +39,10 @@ if (isset($_POST['send'])) {
 				$result = $stmt->fetch();
 				if ($password == password_verify($password, $result['pw'])) { //passwords match
 					$firstName = $result['firstName'];
+					session_start();
 					$_SESSION['firstName'] = $firstName;
 					$_SESSION['email'] = $email;
-					header('Location:http://webdev.cislabs.uncw.edu/~bh4560/Tidey/logged_in.php');
+					header('Location:http://webdev.cislabs.uncw.edu/~bh4560/TideyProject/tidey/web/logged_in.php');
 					exit;
 
 

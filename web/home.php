@@ -8,10 +8,10 @@
 	<div class="container">
 		<div class="jumbotron">
 			<h1>Tidey</h1>
-			<p>Weather data at your finger tips.</p>
+			<p>Coastal weather data trends at your finger tips.</p>
 		</div>
 	</div>
 </main>
 
 
-<?php include 'includes/footer.php'; ?>
+<?php include './includes/footer.php'; ?>

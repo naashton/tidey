@@ -246,7 +246,7 @@ Highcharts.setOptions(Highcharts.theme);
         series: [{showInLegend: false,}]
       };
 
-      $.getJSON('air_temp_chart_wrightsville.php', function(json) {
+      $.getJSON('air_temp_chart_beaufort.php', function(json) {
 	options.xAxis.categories = json[0]['data'];
     	options.series[0].data = json[1].data;
     	chart = new Highcharts.Chart(options);
@@ -274,7 +274,7 @@ Highcharts.setOptions(Highcharts.theme);
         series: [{showInLegend: false,}]
       };
 
-      $.getJSON('water_temp_chart_wrightsville.php', function(json) {
+      $.getJSON('water_temp_chart_beaufort.php', function(json) {
 	options2.xAxis.categories = json[0]['data'];
     	options2.series[0].data = json[1].data;
     	chart2 = new Highcharts.Chart(options2);
@@ -302,7 +302,7 @@ Highcharts.setOptions(Highcharts.theme);
         series: [{showInLegend: false,}]
       };
 
-      $.getJSON('air_pressure_chart_wrightsville.php', function(json) {
+      $.getJSON('air_pressure_chart_beaufort.php', function(json) {
 	options3.xAxis.categories = json[0]['data'];
     	options3.series[0].data = json[1].data;
     	chart3 = new Highcharts.Chart(options3);
@@ -330,37 +330,10 @@ Highcharts.setOptions(Highcharts.theme);
         series: [{showInLegend: false,}]
       };
 
-      $.getJSON('wind_chart_wrightsville.php', function(json) {
+      $.getJSON('wind_chart_beaufort.php', function(json) {
 	options4.xAxis.categories = json[0]['data'];
     	options4.series[0].data = json[1].data;
     	chart4 = new Highcharts.Chart(options4);
-      });
-
-    var options5 = {
-        chart: {
-          renderTo: 'airtempscatter',
-          defaultSeriesType: 'scatter',
-        },
-    title: {
-        text: 'Air Temperature Based on Temperature Range',
-    },
-    xAxis: {
-	categories: []
-    },
-    yAxis: {
-        title: {
-          text: 'Temperature'
-        },
-    },
-    credits: {
-        enabled: false
-    },
-        series: [{showInLegend: false,}]
-      };
-
-      $.getJSON('air_temperature_scatter.php', function(json) {
-    	options5.series[0].data = json[1].data;
-    	chart5= new Highcharts.Chart(options5);
       });
     });
     </script>
@@ -369,29 +342,29 @@ Highcharts.setOptions(Highcharts.theme);
 		<div class="container">
 			<div class="row">
 				<div class = "container">
-				  <table>
+					<table>
 						<tr>
 							<div class = "col-md-12">
 								<div class = "titletext">
-									<h1>WRIGHTSVILLE BEACH DAILY CHARTS</h1>
+									<h1>BEAUFORT DAILY CHARTS</h1>
 									<hr>
 								</div>
 							</div>
 						</tr>
 						<tr>
-							<div class="col-md-6">
+							<div class="col-md-6 darkbg">
 								<div id="airtemp">
 
 								</div>
 							</div>
-							<div class="col-md-6">
-								<div id="watertemp">
+						<div class="col-md-6">
+							<div id="watertemp">
 
-								</div>
 							</div>
+						</div>
 						</tr>
 						<tr>
-							<div class="col-md-6">
+							<div class="col-md-6 darkbg">
 								<div id="airpressure">
 
 								</div>
@@ -402,15 +375,15 @@ Highcharts.setOptions(Highcharts.theme);
 								</div>
 							</div>
 						</tr>
-						<tr>
-							<div class="col-md-12">   <!-- tidal data -->
-								<div class = "titletext">
-									<h1>WRIGHTSVILLE BEACH DAILY TIDE TABLE</h1>
-									<hr>
-								</div>
-							  <?php include 'tides_table_wrightsville.php'; ?>
-							</div>
-						</tr>
+	          <tr>
+             <div class="col-md-12">
+							 <div class = "titletext">
+								<h1>BEAUFORT DAILY TIDE TABLE</h1>
+								<hr>
+							 </div>
+             	 <?php include 'tides_table_beaufort.php'; ?>
+             </div>
+	          </tr>
 				  </table>
 				</div>
 			</div>
