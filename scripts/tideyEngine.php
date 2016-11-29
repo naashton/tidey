@@ -11,8 +11,8 @@
  */
 
 //global $base_url;
-$apikey = "apikey=O0VMhZn0cW9ipfmzbWp3LRko2UOhOCNq";
-//$apikey = "apikey=pBJxClBZXLvYp0VUwAw98XdKguS16GIC";  //This is the AccuWeather API Key from November 2, 2016 + 180 days
+//$apikey = "apikey=O0VMhZn0cW9ipfmzbWp3LRko2UOhOCNq";
+$apikey = "apikey=pBJxClBZXLvYp0VUwAw98XdKguS16GIC";  //This is the AccuWeather API Key from November 2, 2016 + 180 days
 $base_url = "http://dataservice.accuweather.com/";
 
 if(isset($_POST['submit'])){
