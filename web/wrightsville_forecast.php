@@ -27,13 +27,13 @@ for($index = 0; $index < count($forecasts); $index++){
 }
 echo "</tr>";
 
-echo "<tr><td class=\"col-md-2 chart\">Low</td>";
+echo "<tr><td class=\"col-md-2 chart\">Low (Fahrenheit)</td>";
 for($index = 0; $index < count($forecasts); $index++){
     echo "<td class=\"col-md-2\">".$forecasts[$index]['Low']."</td>";
 }
 echo "</tr>";
 
-echo "<tr><td class=\"col-md-2 chart\">High</td>";
+echo "<tr><td class=\"col-md-2 chart\">High (Fahrenheit)</td>";
 for($index = 0; $index < count($forecasts); $index++){
     echo "<td class=\"col-md-2\">".$forecasts[$index]['High']."</td>";
 }
@@ -45,25 +45,25 @@ for($index = 0; $index < count($forecasts); $index++){
 }
 echo "</tr>";
 
-echo "<tr><td class=\"col-md-2 chart\">Precipitation</td>";
+echo "<tr><td class=\"col-md-2 chart\">Precipitation (%)</td>";
 for($index = 0; $index < count($forecasts); $index++){
     echo "<td class=\"col-md-2\">".$forecasts[$index]['Percipitation']."</td>";
 }
 echo "</tr>";
 
-echo "<tr><td class=\"col-md-2 chart\">Thunder</td>";
+echo "<tr><td class=\"col-md-2 chart\">Thunder (%)</td>";
 for($index = 0; $index < count($forecasts); $index++){
     echo "<td class=\"col-md-2\">".$forecasts[$index]['Thunder']."</td>";
 }
 echo "</tr>";
 
-echo "<tr><td class=\"col-md-2 chart\">Snow</td>";
+echo "<tr><td class=\"col-md-2 chart\">Snow (%)</td>";
 for($index = 0; $index < count($forecasts); $index++){
     echo "<td class=\"col-md-2\">".$forecasts[$index]['Snow']."</td>";
 }
 echo "</tr>";
 
-echo "<tr><td class=\"col-md-2 chart\">Wind Speed</td>";
+echo "<tr><td class=\"col-md-2 chart\">Wind Speed (mph)</td>";
 for($index = 0; $index < count($forecasts); $index++){
     echo "<td class=\"col-md-2\">".$forecasts[$index]['Wind Speed']."</td>";
 }

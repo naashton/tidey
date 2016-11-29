@@ -245,7 +245,7 @@ Highcharts.setOptions(Highcharts.theme);
     },
     yAxis: {
         title: {
-          text: 'Temperature (Degrees Farenheight)'
+          text: 'Temperature (Degrees Fahrenheit)'
         },
     },
     credits: {
@@ -273,7 +273,7 @@ Highcharts.setOptions(Highcharts.theme);
     },
     yAxis: {
         title: {
-          text: 'Temperature (Degrees Farenheight)'
+          text: 'Temperature (Degrees Fahrenheit)'
         },
     },
     credits: {
