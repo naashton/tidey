@@ -1,4 +1,10 @@
-<?php 
+<?php
+
+/*********************
+* Tidey 2016
+* air_pressure_chart_beaufort.php grabs the information in the database
+* for creating the graph for air pressure on the beaufort.php page.
+*********************/
 
 $servername = "127.0.0.1";
 $username = "brk3269";

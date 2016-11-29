@@ -1,4 +1,10 @@
 <?php
+	/*********************
+	* Tidey 2016
+	* upload_image.php provides a way for the user to upload images to their personal
+	* folder in the database. Using a simple upload button the image will be stored in
+	* the user folder in the database and can be accessed and viewed from the View Images page.
+	*********************/
 	require 'includes/header.php';
 	require '../../pdo_config.php';
 	$email = $_SESSION['email'];

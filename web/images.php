@@ -1,4 +1,10 @@
-<?php require 'includes/header.php';
+<?php
+/*********************
+* Tidey 2016
+* images.php functions as a page to display links to images that the user
+* had previously uploaded to their folder in the database.
+*********************/
+require 'includes/header.php';
 $email = $_SESSION['email'];
 $folder = preg_replace('/[^a-z0-9]/i', '', $email);
 ?>

@@ -4,11 +4,11 @@
  * User: nick
  * Date: 11/17/16
  * Time: 8:50 PM
+ * Fetches and presents the 5-day forecast for Wrightsville beach in a table
  */
 /*
  * Uncomment these 2 required statements when pushing live
  */
-require 'includes/header.php';
 //require '../src/tideyEngine.php';
 require '../scripts/tideyEngine.php';
 date_default_timezone_set('America/New_York');  //Corrects error where date() is not configured
@@ -21,57 +21,56 @@ $forecasts[] = getForecastDay4("Wrightsville%20Beach");
 $forecasts[] = getForecastDay5("Wrightsville%20Beach");
 
 echo "<div class=\"container\"><table class=\"table\">";
-echo "<tr><td class=\"col-md-2\">Date</td>";
+echo "<tr><td class=\"col-md-2 chart\">Date</td>";
 for($index = 0; $index < count($forecasts); $index++){
-    echo "<td class=\"col-md-1\">".$forecasts[$index]['Date']."</td>";
+    echo "<td class=\"col-md-2 chart\">".$forecasts[$index]['Date']."</td>";
 }
 echo "</tr>";
 
-echo "<tr><td>Low</td>";
+echo "<tr><td class=\"col-md-2 chart\">Low</td>";
 for($index = 0; $index < count($forecasts); $index++){
-    echo "<td>".$forecasts[$index]['Low']."</td>";
+    echo "<td class=\"col-md-2\">".$forecasts[$index]['Low']."</td>";
 }
 echo "</tr>";
 
-echo "<tr><td>High</td>";
+echo "<tr><td class=\"col-md-2 chart\">High</td>";
 for($index = 0; $index < count($forecasts); $index++){
-    echo "<td>".$forecasts[$index]['High']."</td>";
+    echo "<td class=\"col-md-2\">".$forecasts[$index]['High']."</td>";
 }
 echo "</tr>";
 
-echo "<tr><td>Forecast</td>";
+echo "<tr><td class=\"col-md-2 chart\">Forecast</td>";
 for($index = 0; $index < count($forecasts); $index++){
-    echo "<td>".$forecasts[$index]['Forecast']."</td>";
+    echo "<td class=\"col-md-2\">".$forecasts[$index]['Forecast']."</td>";
 }
 echo "</tr>";
 
-echo "<tr><td>Precipitation</td>";
+echo "<tr><td class=\"col-md-2 chart\">Precipitation</td>";
 for($index = 0; $index < count($forecasts); $index++){
-    echo "<td>".$forecasts[$index]['Percipitation']."</td>";
+    echo "<td class=\"col-md-2\">".$forecasts[$index]['Percipitation']."</td>";
 }
 echo "</tr>";
 
-echo "<tr><td>Thunder</td>";
+echo "<tr><td class=\"col-md-2 chart\">Thunder</td>";
 for($index = 0; $index < count($forecasts); $index++){
-    echo "<td>".$forecasts[$index]['Thunder']."</td>";
+    echo "<td class=\"col-md-2\">".$forecasts[$index]['Thunder']."</td>";
 }
 echo "</tr>";
 
-echo "<tr><td>Snow</td>";
+echo "<tr><td class=\"col-md-2 chart\">Snow</td>";
 for($index = 0; $index < count($forecasts); $index++){
-    echo "<td>".$forecasts[$index]['Snow']."</td>";
+    echo "<td class=\"col-md-2\">".$forecasts[$index]['Snow']."</td>";
 }
 echo "</tr>";
 
-echo "<tr><td>Wind Speed</td>";
+echo "<tr><td class=\"col-md-2 chart\">Wind Speed</td>";
 for($index = 0; $index < count($forecasts); $index++){
-    echo "<td>".$forecasts[$index]['Wind Speed']."</td>";
+    echo "<td class=\"col-md-2\">".$forecasts[$index]['Wind Speed']."</td>";
 }
 echo "</tr>";
 
-echo "<tr><td>Wind Direction</td>";
+echo "<tr><td class=\"col-md-2 chart\">Wind Direction</td>";
 for($index = 0; $index < count($forecasts); $index++){
-    echo "<td>".$forecasts[$index]['Wind Direction']."</td>";
+    echo "<td class=\"col-md-2\">".$forecasts[$index]['Wind Direction']."</td>";
 }
-echo "</tr></div>";
-
+echo "</tr></table></div>";

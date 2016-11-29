@@ -1,4 +1,11 @@
 <?php
+/*********************
+* Tidey 2016
+* CSC 455 Utilizing a Prepared Statement
+* tides_stations.php sets up a connection to each NOAA station that
+* Tidey interacts with to receive weather data information to store
+* in the database.
+*********************/
 $servername = "localhost";
 $username = "brk3269";
 $password = "carkorabi77888";

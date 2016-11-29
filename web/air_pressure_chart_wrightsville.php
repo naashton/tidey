@@ -1,5 +1,9 @@
-<?php 
-
+<?php
+/*********************
+* Tidey 2016
+* air_pressure_chart_wrightsville.php grabs the information for creating the graph for
+* air pressure on the wrightsville.php page.
+*********************/
 $servername = "127.0.0.1";
 $username = "brk3269";
 $password = "carkorabi77888";

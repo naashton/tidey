@@ -1,5 +1,10 @@
-<?php 
-
+<?php
+/*********************
+* Tidey 2016
+* tidey_noaa.php creates the initial connection to the NOAA api that will grab
+* weather data and store the information in tables in the database.
+* This is the script utilized by the cron.
+*********************/
 $curl = curl_init();
 
 $servername = "localhost";
@@ -20,6 +25,7 @@ for($p = 0; $p < count($products); $p++){
     mysqli_query($conn, "truncate table $product;") or die(mysqli_error($conn));
 }
 $element = 0;
+// Loop over stations and get data from requested fields and insert into database
 $stations = array("8658163", "8656483");
 for($z = 0; $z < count($stations); $z++){
     $station = $stations[$z];
@@ -40,7 +46,7 @@ for($z = 0; $z < count($stations); $z++){
 		if ($err) {
 		    echo "Curl Error #:" . $err;
 		} else {
-		    $json = json_decode($response, true); 
+		    $json = json_decode($response, true);
 		    $location = $json["metadata"]["name"];
 
 		    for($i=0; $i<count($json["data"]); $i++){
@@ -61,7 +67,7 @@ for($z = 0; $z < count($stations); $z++){
 			        continue;
 			    }
 			}
-			
+
 			mysqli_query($conn, "START TRANSACTION");
 
 			if ($product == "air_temperature"){
@@ -88,7 +94,7 @@ for($z = 0; $z < count($stations); $z++){
 		}
 	}
 }
-
+// CSC 455
 mysqli_query($conn, "drop view AIR_TEMP_Wrightsville") or die(mysqli_error($conn));
 $query_create_view = "create view AIR_TEMP_Wrightsville as select ttime, air_temperature from air_temperature where location='Wrightsville Beach';";
 mysqli_query($conn, $query_create_view) or die(mysqli_error($conn));
@@ -98,11 +104,11 @@ $query_create_view = "create view AIR_TEMP_Beaufort as select ttime, air_tempera
 mysqli_query($conn, $query_create_view) or die(mysqli_error($conn));
 
 mysqli_query($conn, "drop view WATER_TEMP_Wrightsville") or die(mysqli_error($conn));
-$query_create_view = "create view WATER_TEMP_Wrightsville as select ttime, water_temperature from water_temperature where location='Wrightsville Beach';";	
+$query_create_view = "create view WATER_TEMP_Wrightsville as select ttime, water_temperature from water_temperature where location='Wrightsville Beach';";
 mysqli_query($conn, $query_create_view) or die(mysqli_error($conn));
 
 mysqli_query($conn, "drop view WATER_TEMP_Beaufort") or die(mysqli_error($conn));
-$query_create_view = "create view WATER_TEMP_Beaufort as select ttime, water_temperature from water_temperature where location='Beaufort';";	
+$query_create_view = "create view WATER_TEMP_Beaufort as select ttime, water_temperature from water_temperature where location='Beaufort';";
 mysqli_query($conn, $query_create_view) or die(mysqli_error($conn));
 
 ?>

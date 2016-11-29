@@ -1,4 +1,8 @@
-/*Brandon Harris */
+/*
+Tidey 2016
+main.css is used for styling the various web pages with more specific customization
+that was not provided initially with the bootstrap framework
+*/
 .jumbotron {
   color: white;
   background-image: url("../images/jumbopic.png");
@@ -15,6 +19,11 @@
   color: #2B908F;
   font-family: 'Unica One';
   text-align: center;
+}
+
+.chart {
+  color: #2B908F;
+  font-family; 'Unica One';
 }
 
 

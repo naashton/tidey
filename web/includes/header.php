@@ -1,7 +1,14 @@
-<?php session_start(); ?>
+<?php
+session_start();
+/*********************
+* Tidey 2016
+* header.php provides the uesr with a navigation bar to visit various parts of Tidey.
+* The file also provies the styling, both bootstrap and custom CSS, on every page because
+* header.php is included on every page.
+*********************/
+?>
 <!DOCTYPE HTML>
 <head>
-    <!-- Brandon Harris -->
     <meta charset="utf-8">
     <title>Tidey</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">

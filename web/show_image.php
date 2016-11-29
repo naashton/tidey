@@ -1,5 +1,9 @@
 <?php
-// This page displays an image uploaded by a user.
+/*********************
+* Tidey 2016
+* show_image.php displays the image of the link the user clicked on from their
+* personal folder in the database. 
+*********************/
 session_start();
 $email = $_SESSION['email'];
 $folder = preg_replace('/[^a-z0-9]/i', '', $email);

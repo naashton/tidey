@@ -1,3 +1,8 @@
+<!--
+Tidey 2016
+footer.php simply displays a footer graphic on each page and
+the developer names of the website.
+-->
 <br>
 <footer class="footer">
       <div class="container">

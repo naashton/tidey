@@ -1,4 +1,10 @@
-<?php  require_once ('../../reg_conn.php');
+<?php
+/*********************
+* Tidey 2016
+* logged_out.php provides the user with a response to the authentication of their
+* loggout attempt. If the user reaches this page in error it will display a message.
+*********************/
+require_once ('../../reg_conn.php');
 session_start();
 		if (isset($_SESSION['firstName'])){
 			$firstname = $_SESSION['firstName'];

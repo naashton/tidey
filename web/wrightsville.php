@@ -1,5 +1,13 @@
-<?php    //Brandon Harris
-	require 'includes/header.php'; ?>
+<?php
+	/*********************
+	* Tidey 2016
+	* wrightsville.php provides the user with a snapshot of weather data for the last 24 hours for the location.
+	* Graphs are generated and are interactive with javascript, and tide data/forcasting is displayed
+	* further down the page in tables. The page is styled with bootstrap and custom CSS. Graphs are updated
+	* hourly due to a cron job that runs every hour and refreshes the interactive graphs.
+	*********************/
+	require 'includes/header.php';
+?>
   <head>
   <script type="text/javascript" src="https://code.jquery.com/jquery-1.10.1.js"></script>
   <script type="text/javascript" src="https://code.highcharts.com/highcharts.js"></script>
@@ -412,9 +420,17 @@ Highcharts.setOptions(Highcharts.theme);
 							</div>
 						</tr>
 				  </table>
+					<div>
+						<div class="col-md-12">
+							<div class = "titletext">
+								<h1>WRIGHTSVILLE BEACH FUTURE FORECAST</h1>
+								<hr>
+							</div>
+							<?php include 'wrightsville_forecast.php'; ?>
+					</div>
 				</div>
 			</div>
 		</div>
-	</body>
+</body>
 
 <?php include './includes/footer.php'; ?>

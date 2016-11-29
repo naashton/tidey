@@ -1,4 +1,9 @@
 <?php
+/*********************
+* Tidey 2016
+* tides_table_beaufort.php grabs the information for creating the table for
+* tides on the beaufort.php page.
+*********************/
 echo "<table class=\"table\">
         <thead>
 	    <tr>

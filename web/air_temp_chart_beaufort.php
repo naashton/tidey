@@ -1,5 +1,9 @@
-<?php 
-
+<?php
+/*********************
+* Tidey 2016
+* air_temp_chart_beaufort.php grabs the information for creating the graph for
+* air temperature on the beaufort.php page.
+*********************/
 $servername = "127.0.0.1";
 $username = "brk3269";
 $password = "carkorabi77888";

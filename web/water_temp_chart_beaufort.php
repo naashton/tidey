@@ -1,5 +1,9 @@
-<?php 
-
+<?php
+/*********************
+* Tidey 2016
+* water_temp_chart_beaufort.php grabs the information for creating the graph for
+* water temperature on the beaufort.php page.
+*********************/
 $servername = "127.0.0.1";
 $username = "brk3269";
 $password = "carkorabi77888";
@@ -20,7 +24,7 @@ if ($result = mysqli_query($conn, $query)) {
     while($row = mysqli_fetch_assoc($result)){
         $data['data'][] = $row["ttime"];
         $data2['data'][] = $row["water_temperature"];
-    }   
+    }
 }
 
 $result = array();

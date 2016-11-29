@@ -1,5 +1,9 @@
-<?php 
-
+<?php
+/*********************
+* Tidey 2016
+* wind_chart_wrigtshville.php grabs the information for creating the graph for
+* wind on the wrightsville.php page.
+*********************/
 $servername = "127.0.0.1";
 $username = "brk3269";
 $password = "carkorabi77888";

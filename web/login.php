@@ -1,4 +1,11 @@
-<?php //This is the login page for registered users
+<?php
+/*********************
+* Tidey 2016
+* login.php provides a way for the user to login to their personal account.
+* If the user enters the wrong information it will ask for the user to attempt to
+* login again. Once the user is logged in succesfully it will send the user to
+* logged_in.php
+*********************/
 require_once('../../secure_conn.php');
 session_start();
 //require 'includes/header.php';

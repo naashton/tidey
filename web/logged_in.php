@@ -1,4 +1,9 @@
 <?php
+/*********************
+* Tidey 2016
+* logged_in.php provides the user with a response to the authentication of their
+* login attempt. If the user reaches this page in error it will display a message.
+*********************/
 session_start();// Access the existing session.
 require_once('../../secure_conn.php');
 require 'includes/header.php';

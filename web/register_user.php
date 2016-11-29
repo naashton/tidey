@@ -1,4 +1,12 @@
-<?php //Tidey Register User Page [Brandon Harris]
+<?php
+	/*********************
+	* Tidey 2016
+	* register_user.php provides a way for a user to create a personal account on the Tidey website.
+	* It requires a first and last name, email, password, and an of entering a zip code.
+	* The form will check to make sure the email is valid without special characters, and will store
+	* the user information in the database upon completion. Once registered it will notify the user to
+	* use the navbar to navigate to the login page to sign into their account.
+	*********************/
 	require_once('../../secure_conn.php');
 	require 'includes/header.php';
 	if (isset($_POST['send'])) {
