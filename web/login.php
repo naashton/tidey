@@ -49,10 +49,14 @@ if (isset($_POST['send'])) {
 					session_start();
 					$_SESSION['firstName'] = $firstName;
 					$_SESSION['email'] = $email;
-					header('Location:http://webdev.cislabs.uncw.edu/~bh4560/TideyProject/tidey/web/logged_in.php');
-					exit;
-
-
+					if ($firstName == 'Admin' && $email == 'admin@tidey.com') {
+						header('Location:http://webdev.cislabs.uncw.edu/~bh4560/TideyProject/tidey/web/admin.php');
+						exit;
+					}
+					else {
+						header('Location:http://webdev.cislabs.uncw.edu/~bh4560/TideyProject/tidey/web/logged_in.php');
+						exit;
+					}
 				}
 				else {
 					$errors[]='password';
